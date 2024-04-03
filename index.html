@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Merriweather:ital,wght@1,700&display=swap');
+      </style>
+    <style>
+        body{
+            background:url('https://images5.alphacoders.com/131/1311994.jpeg');
+            background-position:left 3% bottom 50%;
+            color: rgb(255, 255, 255);
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .navbar{
+            margin: 20px 20px;
+            background-color: rgba(255, 255, 255, 0.36);
+            width: auto;
+            border-radius:10px;     
+        }
+
+        .navbar li a{
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+          
+        }
+        .navbar li a:hover{
+           
+            text-decoration: none;
+           
+            color: rgb(255, 255, 255);
+        }
+        .navbar li a:active{
+         
+            text-decoration: none;
+            color: rgb(222, 255, 152);
+        }
+
+        .btn{
+            background-color: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+            border-color: rgba(240, 248, 255, 0.582);
+        }
+
+        #heading{
+            display: inline;
+            color: rgb(5, 4, 33);
+            font-family:'dancing script';
+            font-size:xx-large;
+            padding-top:10px;  
+            padding-left: 10px;
+        }
+
+        .card{
+            background-color: rgba(255, 255, 255, 0.36);
+            border-color: black;
+        }
+
+        .table{
+            overflow: auto;
+        }
+
+        #button{
+            margin-bottom: 0px;
+        }
+
+        .icons{
+            margin:30%;
+            color:rgb(0, 0, 0);
+            font-size: 30px;
+            
+        }
+
+        #seperate{
+        display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+        }
+
+        #connect{
+            width:300px;
+            margin: 50px 90px;
+           
+        }
+
+       .about{
+        background-color: rgba(1, 1, 1, 0.351);
+       } 
+    </style>
+
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <h3><a class="navbar-brand" href="#" id="heading">Weather</a></h3>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.linkedin.com/in/purvi-baranwal/" target="blank">About me</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  How to use?
+                </a>
+                <ul class="dropdown-menu">
+                  <li type="rounded"
+                  class="dropdown-item" >1.Go the search box.</li>
+                  <li class="dropdown-item" >2.Type the city name</li>
+                  <li class="dropdown-item" >3.Click on search.</li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input id="city" class="form-control me-2" type="search" placeholder="City" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit" id="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container">
+        <h1 class="'my-4 text-center"> Weather for <span id="cityName"></span></h1>
+        <main>
+            <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+              <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                  <div class="card-header py-3">
+                    <h4 class="my-0 fw-normal">Temperature</h4>
+                  </div>
+                  <div class="card-body">
+                    <h1 class="card-title pricing-card-title"> <span id="temp2"></span><small class="text-body-secondary fw-light">°C</small></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                      <li>Temperature is <span id="temp"></span>°C</li>
+                      <li>Mininmum Temperature: <span id="min_temp"></span</li>
+                      <li>Maximum Temperature: <span id="max_temp"></span</li>
+
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                  <div class="card-header py-3">
+                    <h4 class="my-0 fw-normal">Humidity</h4>
+                  </div>
+                  <div class="card-body">
+                    <h1 class="card-title pricing-card-title text-center"><span id="humidity2"></span> <small class="text-body-secondary fw-light"> %</small></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                    <li>Feels like <span id="feels_like"></span</li>
+                    <li>Humidity :  <span id="humidity"></span</li>
+                    <li>Wind Degree <span id="wind_degrees"></span</li>
+                      </ul>
+                  </div>
+                </div>
+                
+              </div>
+              <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm ">
+                  <div class="card-header py-3 ">
+                    <h4 class="my-0 fw-normal">Wind Speed</h4>
+                  </div>
+                  <div class="card-body">
+                    <h1 class="card-title pricing-card-title"> <span id="wind_speed2"></span><small class="text-body-secondary fw-light"> km/h</small></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>Sunrise Time is <span id="sunrise"></span</li>
+                        <li>Sunset Time is <span id="sunset"></span</li>
+                        <li>Wind Speed <span id="wind_speed"></span</li>   
+                    </ul> 
+                  </div>
+                </div></div>
+                </div>
+              
+              
+            </div>
+        </div>
+          </main>
+          <div id="seperate">
+          <div id="connect">
+            <a href="https://www.linkedin.com/in/purvi-baranwal/" target="blank" class="icons">
+                <ion-icon name="logo-linkedin"></ion-icon></a>
+             <a href="https://www.instagram.com/_._purvi/" target="blank" class="icons">
+                <ion-icon name="logo-instagram"></ion-icon></a>
+             <a href="https://github.com/PuR-vI" target="blank" class="icons">
+                <ion-icon name="logo-github"></ion-icon></a>
+                <a href="mailto:purvi.wk@gmail.com"  class="w-100 btn btn-lg btn-primary" id="button">Contact us. </a>
+            </div>
+                <div class="p-4  rounded about">
+                    <h4 class="fst-italic" style="font-size: xx-large;">About this page ~</h4>
+                    <p class="mb-0" style="font-size: larger;">This weather display page is a web app showcasing real-time weather data for multiple cities. It employs HTML, CSS, and JavaScript, utilizing the RapidAPI platform to fetch weather information. Users can search for specific cities, view detailed weather updates, and compare conditions across locations in a visually appealing and responsive design.</p>
+                  </div>
+            </div>
+      </div>
+       
+             
+      <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
